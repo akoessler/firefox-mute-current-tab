@@ -1,0 +1,10 @@
+{
+    "esversion": 8,
+    "strict": "global",
+    "globals": {
+        "browser": false,
+        "chrome": false
+    },
+    "browser": true,
+    "devel": true
+}

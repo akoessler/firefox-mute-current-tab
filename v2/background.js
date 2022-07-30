@@ -18,7 +18,7 @@ browser.commands.onCommand.addListener(async (command) => {
         for (let tab of tabs) {
             console.log("command toggle-mute-tab executed");
             console.log(tab);
-            toggleTabMute(tab)
+            toggleTabMute(tab);
         }
     }
 });
@@ -31,37 +31,37 @@ function toggleTabMute(tab) {
 
 // event handler to update toolbar icon
 
-browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+browser.tabs.onUpdated.addListener((_tabId, changeInfo, tab) => {
     if (changeInfo.hasOwnProperty("mutedInfo") || changeInfo.hasOwnProperty("status")) {
         console.log("tabs.onUpdated");
         console.log(tab);
-        updateToolbarIcon(tab)
+        updateToolbarIcon(tab);
     }
-})
+});
 
 browser.tabs.onActivated.addListener(async (activeInfo) => {
     let tab = await browser.tabs.get(activeInfo.tabId);
     console.log("tabs.onActivated");
     console.log(tab);
-    updateToolbarIcon(tab)
-})
+    updateToolbarIcon(tab);
+});
 
-browser.theme.onUpdated.addListener(async (updateInfo) => {
+browser.theme.onUpdated.addListener(async (_updateInfo) => {
     let tabs = await browser.tabs.query({active: true, currentWindow: true});
     for (let tab of tabs) {
         console.log("theme.onUpdated");
         console.log(tab);
-        updateToolbarIcon(tab)
+        updateToolbarIcon(tab);
     }
-})
+});
 
 // update icon tool methods
 
 function updateToolbarIcon(tab) {
     if (tab.mutedInfo.muted) {
-        setToolbarIconMute(tab)
+        setToolbarIconMute(tab);
     } else {
-        setToolbarIconUnmute(tab)
+        setToolbarIconUnmute(tab);
     }
 }
 
