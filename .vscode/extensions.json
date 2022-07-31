@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "dbaeumer.jshint",
+        "firefox-devtools.vscode-firefox-debug"
+    ],
+}
