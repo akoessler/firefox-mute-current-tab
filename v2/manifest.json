@@ -1,13 +1,13 @@
 {
     "manifest_version": 2,
 
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "developer": {
         "name": "Andreas Kössler",
-        "url": "https://github.com/akoessler/firefox-mute-tab"
+        "url": "https://github.com/akoessler/firefox-mute-current-tab"
     },
 
     "browser_specific_settings": {
