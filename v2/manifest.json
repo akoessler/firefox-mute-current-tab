@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
 
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
@@ -45,7 +45,7 @@
         "toggle-mute-tab": {
             "description": "__MSG_commandDescription__",
             "suggested_key": {
-                "default": "Alt+X"
+                "default": "Alt+C"
             }
         }
     }
