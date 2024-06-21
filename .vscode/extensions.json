@@ -1,6 +1,6 @@
 {
     "recommendations": [
-        "dbaeumer.jshint",
+        "dbaeumer.vscode-eslint",
         "firefox-devtools.vscode-firefox-debug"
     ],
 }

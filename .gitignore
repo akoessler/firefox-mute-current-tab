@@ -1,4 +1,15 @@
-.vscode
+# vscode files, but include workspace settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+
+# temporary files
 .DS_Store
-node-modules
+
+# npm
+node_modules
+
+# web-ext output
 web-ext-artifacts

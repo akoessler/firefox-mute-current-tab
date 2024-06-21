@@ -1,0 +1,35 @@
+{
+  "name": "firefox-mute-current-tab",
+  "title": "Mute current tab",
+  "version": "1.1.0",
+  "description": "Firefox extension to mute current tab",
+  "homepage": "https://addons.mozilla.org/en-US/firefox/addon/mute-current-tab",
+  "bugs": {
+    "url": "https://github.com/akoessler/firefox-mute-current-tab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akoessler/firefox-mute-current-tab.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mute",
+    "tab",
+    "firefox",
+    "mozilla",
+    "webextensions"
+  ],
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.5.0",
+    "eslint": "^9.5.0",
+    "globals": "^15.6.0",
+    "web-ext": "^8.2.0"
+  },
+  "scripts": {
+    "build": "web-ext build",
+    "lint": "web-ext lint",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix"
+  }
+}
