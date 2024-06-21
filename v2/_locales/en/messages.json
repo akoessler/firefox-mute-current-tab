@@ -1,22 +1,22 @@
 {
-    "extensionName": {
-        "message": "Mute current tab",
-        "description": "Name of the extension."
-    },
-    "extensionDescription": {
-        "message": "Toggle mute for the current tab via a toolbar button.",
-        "description": "Description of the extension."
-    },
-    "commandDescription": {
-        "message": "Toggle mute for the current tab.",
-        "description": "Description of the keyboard shortcut command."
-    },
-    "toolbarTooltipMute": {
-        "message": "Tab is not muted. Click to mute.",
-        "description": "Tooltip text for the toolbar button to mute the tab."
-    },
-    "toolbarTooltipUnmute": {
-        "message": "Tab is muted. Click to unmute.",
-        "description": "Tooltip text for the toolbar button to unmute the tab."
-    }
+  "extensionName": {
+    "message": "Mute current tab",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Toggle mute for the current tab via a toolbar button.",
+    "description": "Description of the extension."
+  },
+  "commandDescription": {
+    "message": "Toggle mute for the current tab.",
+    "description": "Description of the keyboard shortcut command."
+  },
+  "toolbarTooltipMute": {
+    "message": "Tab is not muted. Click to mute.",
+    "description": "Tooltip text for the toolbar button to mute the tab."
+  },
+  "toolbarTooltipUnmute": {
+    "message": "Tab is muted. Click to unmute.",
+    "description": "Tooltip text for the toolbar button to unmute the tab."
+  }
 }

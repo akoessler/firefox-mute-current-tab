@@ -1,22 +1,22 @@
 {
-    "extensionName": {
-        "message": "Aktuellen Tab stummschalten",
-        "description": "Name of the extension."
-    },
-    "extensionDescription": {
-        "message": "Den aktuellen Tab stumm schalten über einen Toolbar Button.",
-        "description": "Description of the extension."
-    },
-    "commandDescription": {
-        "message": "Stumm für den aktuellen Tab ein/ausschalten.",
-        "description": "Description of the keyboard shortcut command."
-    },
-    "toolbarTooltipMute": {
-        "message": "Tab ist stumm. Klicken zum abschalten.",
-        "description": "Tooltip text for the toolbar button to mute the tab."
-    },
-    "toolbarTooltipUnmute": {
-        "message": "Tab ist nicht stumm. Klicken zum stumm schalten.",
-        "description": "Tooltip text for the toolbar button to unmute the tab."
-    }
+  "extensionName": {
+    "message": "Aktuellen Tab stummschalten",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Den aktuellen Tab stumm schalten über einen Toolbar Button.",
+    "description": "Description of the extension."
+  },
+  "commandDescription": {
+    "message": "Stumm für den aktuellen Tab ein/ausschalten.",
+    "description": "Description of the keyboard shortcut command."
+  },
+  "toolbarTooltipMute": {
+    "message": "Tab ist stumm. Klicken zum abschalten.",
+    "description": "Tooltip text for the toolbar button to mute the tab."
+  },
+  "toolbarTooltipUnmute": {
+    "message": "Tab ist nicht stumm. Klicken zum stumm schalten.",
+    "description": "Tooltip text for the toolbar button to unmute the tab."
+  }
 }
