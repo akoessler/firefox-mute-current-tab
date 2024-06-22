@@ -1,7 +1,7 @@
 module.exports = {
   // Global options:
   verbose: true,
-  sourceDir: "v2",
+  sourceDir: "src",
   ignoreFiles: [
     "**/*.ps1",
     "**/*.svg"

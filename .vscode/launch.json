@@ -6,7 +6,7 @@
       "type": "firefox",
       "request": "launch",
       "reAttach": true,
-      "addonPath": "${workspaceFolder}/v2"
+      "addonPath": "${workspaceFolder}/src"
     }
   ]
 }
