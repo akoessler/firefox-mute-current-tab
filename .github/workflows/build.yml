@@ -10,6 +10,7 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   build:
@@ -29,4 +30,3 @@ jobs:
           name: firefox
           path: ./web-ext-artifacts/*.zip
           if-no-files-found: error
-          retention-days: 2

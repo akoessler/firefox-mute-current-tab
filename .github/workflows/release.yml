@@ -10,23 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build the extension
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
-      - run: npm install
-      - run: npm run lint
-      - run: npm run build
-      - uses: actions/upload-artifact@v4
-        with:
-          name: firefox
-          path: ./web-ext-artifacts/mute_current_tab-${{ github.event.release.name }}.zip
-          if-no-files-found: error
-          retention-days: 2
+    uses: ./.github/workflows/build.yml
 
   upload-to-release:
     name: Upload to release
@@ -54,7 +38,7 @@ jobs:
         with:
           name: firefox
           path: web-ext-artifacts
-      - uses: browser-actions/release-firefox-addon@latest
+      - uses: akoessler/release-firefox-addon@latest
         with:
           addon-id: '${{ secrets.MOZILLA_ADDONS_GUID }}'
           auth-api-issuer: ${{ secrets.MOZILLA_ADDONS_JWT_ISSUER }}

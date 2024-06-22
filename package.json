@@ -1,7 +1,7 @@
 {
   "name": "firefox-mute-current-tab",
   "title": "Mute current tab",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Firefox extension to mute current tab",
   "homepage": "https://addons.mozilla.org/en-US/firefox/addon/mute-current-tab",
   "bugs": {
@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/akoessler/firefox-mute-current-tab.git"
   },
+  "author": "Andreas Kössler <github@akoessler.com>",
   "license": "MIT",
   "keywords": [
     "mute",
