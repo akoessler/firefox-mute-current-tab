@@ -28,6 +28,11 @@ jobs:
           file_glob: true
           file: ./web-ext-artifacts/mute_current_tab-${{ github.event.release.name }}.zip
           tag: ${{ github.ref }}
+      - run: |
+          echo "Upload to release successful:" >> $GITHUB_STEP_SUMMARY
+          echo "mute_current_tab-${{ github.event.release.name }}.zip" >> $GITHUB_STEP_SUMMARY
+          echo "${{ github.event.release.html_url }}" >> $GITHUB_STEP_SUMMARY
+
 
   publish-to-mozilla:
     name: Publish to Mozilla Add-ons
@@ -39,6 +44,7 @@ jobs:
           name: firefox
           path: web-ext-artifacts
       - uses: akoessler/release-firefox-addon@latest
+        id: publish
         with:
           addon-id: '${{ secrets.MOZILLA_ADDONS_GUID }}'
           auth-api-issuer: ${{ secrets.MOZILLA_ADDONS_JWT_ISSUER }}
@@ -53,3 +59,9 @@ jobs:
             "npm run run" (web-ext run) to debug the extension.
           release-note: |
             ${{ github.event.release.body }}
+      - run: |
+          echo "Publish to Mozilla Add-ons successful:" >> $GITHUB_STEP_SUMMARY
+          echo "mute_current_tab-${{ github.event.release.name }}.zip" >> $GITHUB_STEP_SUMMARY
+          echo "version: ${{ steps.publish.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "version-id: ${{ steps.publish.outputs.version-id }}" >> $GITHUB_STEP_SUMMARY
+          echo "version-edit-url: ${{ steps.publish.outputs.version-edit-url }}" >> $GITHUB_STEP_SUMMARY

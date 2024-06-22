@@ -30,3 +30,6 @@ jobs:
           name: firefox
           path: ./web-ext-artifacts/*.zip
           if-no-files-found: error
+      - run: |
+          echo "Build successful:" >> $GITHUB_STEP_SUMMARY
+          find ./web-ext-artifacts/*.zip -print >> $GITHUB_STEP_SUMMARY
