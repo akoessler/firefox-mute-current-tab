@@ -15,7 +15,7 @@ function warn(message) {
 
 // event handler to toggle mute
 
-browser.browserAction.onClicked.addListener((tab) => {
+browser.action.onClicked.addListener((tab) => {
   if (tab !== undefined) {
     log("toolbar icon clicked");
     log(tab);
@@ -92,7 +92,7 @@ async function setToolbarIcon(tab, newIconState, tooltipKey) {
 
   let tooltip = browser.i18n.getMessage(tooltipKey);
   log(`  set toolbar icon: tab is ${newIconState}, darkmode: ${isDarkMode}`);
-  chrome.browserAction.setIcon({
+  chrome.action.setIcon({
     "tabId": tab.id,
     "path": {
       "16": `images/${iconTheme}/${newIconState}-16.png`,
@@ -101,7 +101,7 @@ async function setToolbarIcon(tab, newIconState, tooltipKey) {
       "128": `images/${iconTheme}/${newIconState}-128.png`
     }
   });
-  chrome.browserAction.setTitle({
+  chrome.action.setTitle({
     "tabId": tab.id,
     "title": tooltip
   });

@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
-  "version": "1.1.0",
+  "version": "2.0.0",
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
@@ -13,7 +13,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "{2c875c02-749f-48b9-8c52-58bec0a68472}",
-      "strict_min_version": "79.0"
+      "strict_min_version": "109.0"
     }
   },
 
@@ -24,7 +24,7 @@
     "128": "images/dark/muted-128.png"
   },
 
-  "browser_action": {
+  "action": {
     "default_icon": {
       "16": "images/light/unmuted-16.png",
       "32": "images/light/unmuted-32.png",
@@ -32,13 +32,11 @@
       "128": "images/light/unmuted-128.png"
     },
     "default_title": "Mute Tab",
-    "browser_style": true,
     "default_area": "navbar"
   },
 
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js"]
   },
 
   "commands": {
