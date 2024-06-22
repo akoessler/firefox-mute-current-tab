@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# docs: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+name: Release
+
+on:
+  # Docs: <https://help.github.com/en/articles/events-that-trigger-workflows
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build the extension
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm install
+      - run: npm run lint
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: firefox
+          path: ./web-ext-artifacts/*.zip
+          if-no-files-found: error
+          retention-days: 2
+
+  upload-to-release:
+    name: Upload to release
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: firefox
+          path: web-ext-artifacts
+      - uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          overwrite: true
+          file_glob: true
+          file: ./web-ext-artifacts/*.zip
+          tag: ${{ github.ref }}
+
+  publish-to-mozilla:
+    name: Publish to Mozilla Add-ons
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: firefox
+          path: web-ext-artifacts
+      - id: find-file
+        run: echo "filename=$(find ./web-ext-artifacts/*.zip -print -quit)"
+      - uses: wdzeng/firefox-addon@v1
+        with:
+          license: MIT
+          self-hosted: false
+          xpi-path: ${{ steps.find-file.outputs.filename }}
+          release-notes: '{ "en-US": "${{ github.event.release.body }}" }'
+          approval-notes: 'Source code is available at ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }}'
+          addon-guid: '${{ secrets.MOZILLA_ADDONS_GUID }}'
+          jwt-issuer: ${{ secrets.MOZILLA_ADDONS_JWT_ISSUER }}
+          jwt-secret: ${{ secrets.MOZILLA_ADDONS_JWT_SECRET }}
