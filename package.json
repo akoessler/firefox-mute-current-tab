@@ -20,6 +20,8 @@
     "webextensions"
   ],
   "devDependencies": {
+    "@action-validator/cli": "^0.6.0",
+    "@action-validator/core": "^0.6.0",
     "@eslint/config-array": "^0.16.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.5.0",
