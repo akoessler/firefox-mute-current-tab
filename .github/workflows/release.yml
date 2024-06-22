@@ -24,7 +24,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: firefox
-          path: ./web-ext-artifacts/*.zip
+          path: ./web-ext-artifacts/mute_current_tab-${{ github.event.release.name }}.zip
           if-no-files-found: error
           retention-days: 2
 
@@ -42,7 +42,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           overwrite: true
           file_glob: true
-          file: ./web-ext-artifacts/*.zip
+          file: ./web-ext-artifacts/mute_current_tab-${{ github.event.release.name }}.zip
           tag: ${{ github.ref }}
 
   publish-to-mozilla:
@@ -54,13 +54,11 @@ jobs:
         with:
           name: firefox
           path: web-ext-artifacts
-      - id: find-file
-        run: echo "filename=$(find ./web-ext-artifacts/*.zip -print -quit)"
       - uses: wdzeng/firefox-addon@v1
         with:
           license: MIT
           self-hosted: false
-          xpi-path: ${{ steps.find-file.outputs.filename }}
+          xpi-path: ./web-ext-artifacts/mute_current_tab-${{ github.event.release.name }}.zip
           release-notes: '{ "en-US": "${{ github.event.release.body }}" }'
           approval-notes: 'Source code is available at ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }}'
           addon-guid: '${{ secrets.MOZILLA_ADDONS_GUID }}'

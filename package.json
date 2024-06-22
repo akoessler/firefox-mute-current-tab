@@ -1,7 +1,7 @@
 {
   "name": "firefox-mute-current-tab",
   "title": "Mute current tab",
-  "version": "1.1.0",
+  "version": "2.0.1",
   "description": "Firefox extension to mute current tab",
   "homepage": "https://addons.mozilla.org/en-US/firefox/addon/mute-current-tab",
   "bugs": {
