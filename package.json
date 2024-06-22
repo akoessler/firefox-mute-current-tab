@@ -42,8 +42,10 @@
   },
   "scripts": {
     "build": "web-ext build",
-    "lint": "web-ext lint",
-    "eslint": "eslint .",
-    "eslint:fix": "eslint . --fix"
+    "run": "web-ext run",
+    "lint": "npm run lint:we && npm run lint:es",
+    "lint:we": "web-ext lint",
+    "lint:es": "eslint .",
+    "lint:es:fix": "eslint . --fix"
   }
 }
