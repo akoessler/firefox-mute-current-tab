@@ -1,7 +1,7 @@
 {
   "name": "firefox-mute-current-tab",
   "title": "Mute current tab",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Firefox extension to mute current tab",
   "homepage": "https://addons.mozilla.org/en-US/firefox/addon/mute-current-tab",
   "bugs": {
@@ -43,9 +43,12 @@
   "scripts": {
     "build": "web-ext build",
     "run": "web-ext run",
-    "lint": "npm run lint:we && npm run lint:es",
+    "lint": "npm run lint:we && npm run lint:es && npm run lint:action",
     "lint:we": "web-ext lint",
     "lint:es": "eslint .",
-    "lint:es:fix": "eslint . --fix"
+    "lint:es:fix": "eslint . --fix",
+    "lint:action": "npm run lint:action:build && npm run lint:action:release",
+    "lint:action:build": "action-validator .github/workflows/build.yml",
+    "lint:action:release": "action-validator .github/workflows/release.yml"
   }
 }
